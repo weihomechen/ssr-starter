@@ -1,8 +1,6 @@
 # ssr-starter
 
-同构渲染初始化项目
-
-# 同构渲染（服务端渲染）
+同构渲染（服务端渲染）初始化项目
 
 ## 目的
 
@@ -11,11 +9,11 @@
 
 ## 技术栈
 
-node
-- egg/beidou
-前端
-- react
-- antd
+- node
+  - egg/beidou
+- 前端
+  - react
+  - antd
 
 ## 流程
 
