@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Footer = props => {
+  const { name } = props;
 
   return (
     <div className="footer">
-      footer
+      {name}
     </div>
   );
 };

@@ -21,7 +21,7 @@ module.exports = {
   },
   cluster: {
     listen: {
-      port: 7001,
+      port: 7003,
     },
   },
   alinode: {

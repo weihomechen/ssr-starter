@@ -6,7 +6,7 @@ const mockRes = {
   result: {
     code: '',
     data: {
-
+      desc: 'Data from API service',
     },
     msg: '',
     success: true,

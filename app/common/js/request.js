@@ -2,11 +2,12 @@ const axios = require('axios');
 const Qs = require('qs');
 const getValue = require('get-value');
 
+// API地址可区分环境
 const apiMap = {
-  local: 'http://127.0.0.1:7002/',
-  dev: 'http://127.0.0.1:7002/',
-  stable: 'http://127.0.0.1:7002/',
-  prod: 'http://127.0.0.1:7002/',
+  local: 'http://127.0.0.1:7003/',
+  dev: 'http://127.0.0.1:7003/',
+  stable: 'http://127.0.0.1:7003/',
+  prod: 'http://127.0.0.1:7003/',
 };
 const defaultOptions = {
   v: '1.0',
@@ -18,7 +19,7 @@ function request(api, params = {}, options = {}) {
     app,
     data,
   } = params;
-  const { method } = options;
+  const { method = 'get' } = options;
   const ts = new Date().getTime();
 
   const successCallback = (resp) => {

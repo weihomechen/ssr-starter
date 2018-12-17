@@ -10,7 +10,7 @@ class ApiController extends Controller {
     const { ctx } = this;
     const { api } = ctx.query;
     const data = fs.readFileSync(path.resolve(__dirname, `../../../mock/${api}.json`));
-    const res = data.data.toString();
+    const res = data.toString();
 
     ctx.body = res;
   }
@@ -19,6 +19,7 @@ class ApiController extends Controller {
     const { ctx } = this;
     const { api } = ctx.query;
     const data = fs.readFileSync(path.resolve(__dirname, `../../../mock/${api}.json`));
+
     ctx.body = data.toString();
   }
 }

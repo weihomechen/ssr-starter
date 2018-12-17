@@ -15,27 +15,24 @@
   "dependencies": {
     "antd": "^3.10.9",
     "axios": "^0.18.0",
-    "babel-eslint": "^8.1.2",
     "babel-polyfill": "^6.26.0",
     "beidou-cli": "^1.0.8",
     "beidou-core": "^1.0.9",
     "egg-alinode": "^2.0.1",
-    "es6-promise": "^4.2.5",
     "fetch-jsonp": "^1.1.3",
-    "form-data": "^2.3.3",
     "fs": "^0.0.1-security",
     "get-value": "^3.0.1",
     "moment": "^2.21.0",
     "prop-types": "^15.6.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2",
-    "url-lib": "^2.0.2"
+    "react-router-dom": "^4.2.2"
   },
   "engines": {
     "node": ">= 8.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.1.2",
     "eslint": "^4.11.0",
     "eslint-config-beidou": "^1.0.9",
     "eslint-plugin-import": "^2.8.0",

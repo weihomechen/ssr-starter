@@ -1,32 +1,15 @@
 
 
 import React from 'react';
-import PropTypes from 'prop-types';
 
-export default class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+const Header = props => {
+  const { name } = props;
 
-  static propTypes = {
-    className: PropTypes.string,
-  };
+  return (
+    <div className="header">
+      {name}
+    </div>
+  );
+};
 
-  static defaultProps = {
-    className: 'header',
-  };
-
-  render() {
-    const {
-      className: cn,
-    } = this.props;
-
-    return (
-      <div className={cn}>
-        header
-      </div>
-    );
-  }
-}
+export default Header;

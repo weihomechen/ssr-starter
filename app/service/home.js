@@ -1,5 +1,7 @@
 const request = require('../common/js/request');
 
+const isOnline = __ENV__ === 'prod';
+
 module.exports = (app) => {
   class HomeService extends app.Service {
     /**
@@ -13,7 +15,12 @@ module.exports = (app) => {
         return resp;
       } catch (error) {
         this.ctx.logger.error(error);
-        this.ctx.redirect('/error');
+        if (isOnline) {
+          this.ctx.redirect('/error');
+          return;
+        }
+
+        return { error };
       }
     }
   }

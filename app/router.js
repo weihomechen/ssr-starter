@@ -7,4 +7,5 @@ module.exports = (app) => {
   router.post('/m', controller.api.post);
 
   app.get('home', '/', 'home.index');
+  app.get('error', '/error', 'app.error');
 };
