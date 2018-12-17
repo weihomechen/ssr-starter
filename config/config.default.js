@@ -6,6 +6,11 @@ const { alinodeConfig } = require('./config.private');
 
 module.exports = {
   keys: 'secret',
+  security: {
+    csrf: {
+      enable: false,
+    },
+  },
   router: {
     root: '/pages',
   },

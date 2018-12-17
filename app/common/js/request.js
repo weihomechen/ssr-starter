@@ -14,6 +14,7 @@ const defaultOptions = {
 };
 
 function request(api, params = {}, options = {}) {
+  // axios.defaults.headers.common['x-csrf-token'] = csrftoken;
   const url = `${apiMap[__ENV__]}m/`;
   const {
     app,
