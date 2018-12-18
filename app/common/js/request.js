@@ -1,8 +1,6 @@
-const axios = require('axios');
-const Qs = require('qs');
 const getValue = require('get-value');
 
-// API地址可区分环境
+// API地址可区分环境，一般来说同构渲染node作为中间服务器只有向API服务器请求数据
 const apiMap = {
   local: 'http://127.0.0.1:7003/',
   dev: 'http://127.0.0.1:7003/',
@@ -13,14 +11,11 @@ const defaultOptions = {
   v: '1.0',
 };
 
-function request(api, params = {}, options = {}) {
-  // axios.defaults.headers.common['x-csrf-token'] = csrftoken;
+function request(app, api, params = {}) {
   const url = `${apiMap[__ENV__]}m/`;
   const {
-    app,
     data,
   } = params;
-  const { method = 'get' } = options;
   const ts = new Date().getTime();
 
   const successCallback = (resp) => {
@@ -40,42 +35,17 @@ function request(api, params = {}, options = {}) {
     return Promise.reject(errorObj);
   };
 
-  if (app) {
-    return app.curl(url, {
-      data: {
-        ...defaultOptions,
-        data: JSON.stringify(data),
-        api,
-        ts,
-      },
-    }).then(({ res }) => {
-      res.data = JSON.parse(res.data.toString());
-      return successCallback(res);
-    });
-  } else {
-    return axios({
-      url,
-      params: {
-        ...defaultOptions,
-        api,
-        data: method.toLowerCase() === 'get' ? data : null,
-        ts,
-      },
-      withCredentials: true,
-      data: Qs.stringify({ data: JSON.stringify(data) }), // 这里是为了给post，put，patch请求方式使用的，get不会用到这里，
-      ...options,
-    }).then((resp) => {
-      successCallback(resp);
-    }).catch((e) => {
-      const errorObj = {
-        error: true,
-        msg: e.message || e.msg || `${api}请求错误`,
-        code: e.code || 'Unknow Error',
-      };
-
-      return Promise.reject(errorObj);
-    });
-  }
+  return app.curl(url, {
+    data: {
+      ...defaultOptions,
+      data: JSON.stringify(data),
+      api,
+      ts,
+    },
+  }).then(({ res }) => {
+    res.data = JSON.parse(res.data.toString());
+    return successCallback(res);
+  });
 }
 
 module.exports = request;

@@ -11,7 +11,7 @@ module.exports = (app) => {
      */
     async getAppInfo(param) {
       try {
-        const resp = await request('app.info', param);
+        const resp = await request(app, 'app.info', param);
         return resp;
       } catch (error) {
         this.ctx.logger.error(error);
