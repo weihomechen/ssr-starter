@@ -1,8 +1,8 @@
 import React from 'react';
 
-const DEFAULT_TITLE = 'DEFAULT_TITLE';
-const DEFAULT_KEYWORDS = 'DEFAULT_KEYWORDS';
-const DEFAULT_DESCRIPTION = 'DEFAULT_DESCRIPTION';
+const DEFAULT_TITLE = 'CUSTOM_TITLE';
+const DEFAULT_KEYWORDS = 'CUSTOM_KEYWORDS';
+const DEFAULT_DESCRIPTION = 'CUSTOM_DESCRIPTION';
 
 export const View = (props) => {
   const {

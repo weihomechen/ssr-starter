@@ -22,3 +22,5 @@ track
 .run/
 .vscode/
 !.run/isomorphic
+build
+.stats

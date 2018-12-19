@@ -10,7 +10,7 @@
     "dev": "beidou dev --port 7003",
     "build": "beidou build",
     "build:node": "beidou build --target=node",
-    "prod": "export NODE_ENV=production && EGG_SERVER_ENV=prod beidou start --port 7003"
+    "prod": "export NODE_ENV=production && EGG_SERVER_ENV=prod beidou start --port 7003 --daemon"
   },
   "dependencies": {
     "antd": "^3.10.9",
